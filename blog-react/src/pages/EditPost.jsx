@@ -11,6 +11,13 @@ export default function EditPost() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [previewImage, setPreviewImage] = useState("");
+  const defaultErrors = { title: null, description: null, image: null };
+  const [err, setError] = useState(defaultErrors);
+  const RegisterSchema = object({
+    title: string().required("title is required"),
+    description: string().required("description is required"),
+    image: string().required("image is required"),
+  });
 
   useEffect(() => {
     async function getPostById() {
@@ -26,15 +33,24 @@ export default function EditPost() {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
+    setError(defaultErrors);
     try {
       // Call API
       const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("image", image);
+      const formValues = {
+        title,
+        description,
+        image,
+      };
+      const validationResult = await RegisterSchema.validate(formValues, {
+        abortEarly: false,
+      });
       const { data } = await axios.patch(
         `http://localhost:3000/api/posts/${id}`,
-        formData,
+        validationResult,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -45,7 +61,16 @@ export default function EditPost() {
       // Toast
       toast.success("Product update successfully!");
     } catch (error) {
-      toast.error("Edit Post failed. Please try again later.");
+      console.log("error.inner", error.inner);
+      if (error.inner) {
+        const newErrors = { ...defaultErrors };
+        error.inner.forEach((err) => {
+          newErrors[err.path] = err.message;
+        });
+        setError(newErrors);
+      } else {
+        toast.error("Edit Post . Please try again later.");
+      }
     }
   };
 
@@ -78,6 +103,7 @@ export default function EditPost() {
                 setTitle(e.target.value);
               }}
             />
+            {err.title && <span className="text-red-700 ps-3 font-semibold"> * {err.title} </span>}
 
             <label className="mt-6 text-slate-800 opacity-90 mb-2">
               Description Post
@@ -90,6 +116,7 @@ export default function EditPost() {
                 setDescription(e.target.value);
               }}
             />
+            {err.description && <span className="text-red-700 ps-3 font-semibold"> * {err.description} </span>}
 
             <label className="mt-6 text-slate-800 opacity-90 mb-2  ">
               Image Post
@@ -103,6 +130,7 @@ export default function EditPost() {
               //   }}
               onChange={handleImageChange}
             />
+            {err.image && <span className="text-red-700 ps-3 font-semibold"> * {err.image} </span>}
 
             {/* <input type="file"  className="input input-bordered w-full " /> */}
 
