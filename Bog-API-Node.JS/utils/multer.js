@@ -2,6 +2,7 @@
 const multer = require("multer");
 const sharp = require("sharp");
 const { v4: uuidv4 } = require("uuid");
+const ApiError = require("../utils/error");
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = function (req, file, cb) {
