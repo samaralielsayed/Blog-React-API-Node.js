@@ -14,11 +14,11 @@ export default function Footer() {
   if (withouSidebarRoutes.some((item) => pathname === item)) return null;
   return (
     <>
-      <section className="bg-base-100">
-        <footer className=" container mx-auto  grid grid-cols-10 py-7 pt-14 gap-y-10 gap-x-5  md:grid-cols-12 lg:grid-cols-10 lg:gap-x-10">
+      <section className="bg-slate-800">
+        <footer className=" container mx-auto  grid grid-cols-10 py-7 pt-14 gap-y-10 gap-x-5 ps-20  md:grid-cols-12 lg:grid-cols-10  lg:gap-x-10">
           <div className="col-span-5 md:col-span-4 lg:col-span-2">
-            <h3 className="text-dark-light font-bold md:text-lg ">Product</h3>
-            <ul className="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+            <h3 className="text-gray-300 font-bold md:text-lg ">Product</h3>
+            <ul className="text-gray-300 text-sm mt-5 space-y-4">
               <li>
                 <a className="link link-hover">Landingpage</a>
               </li>
@@ -37,8 +37,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-span-5 md:col-span-4 lg:col-span-2">
-            <h3 className="text-dark-light font-bold md:text-lg">Services</h3>
-            <ul className="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+            <h3 className="text-gray-300 font-bold md:text-lg">Services</h3>
+            <ul className="text-gray-300 text-sm mt-5 space-y-4 ">
               <li>
                 <a className="link link-hover">Documentation</a>
               </li>
@@ -57,8 +57,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-span-5 md:col-span-4 md:col-start-5 lg:col-start-auto lg:col-span-2">
-            <h3 className="text-dark-light font-bold md:text-lg">Company</h3>
-            <ul className="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+            <h3 className="text-gray-300 font-bold md:text-lg">Company</h3>
+            <ul className="text-gray-300 text-sm mt-5 space-y-4 ">
               <li>
                 <a className="link link-hover">About</a>
               </li>
@@ -74,8 +74,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-span-5 md:col-span-4 lg:col-span-2">
-            <h3 className="text-dark-light font-bold md:text-lg">More</h3>
-            <ul className="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+            <h3 className="text-gray-300 font-bold md:text-lg">More</h3>
+            <ul className="text-gray-300 text-sm mt-5 space-y-4 ">
               <li>
                 <a className="link link-hover">Documentation</a>
               </li>
@@ -92,7 +92,7 @@ export default function Footer() {
             alt="logo"
             className="brightness-0 invert mx-auto md:mx-0"
           /> */}
-            <p className="text-sm text-dark-light text-center mt-4 md:text-left md:text-base lg:text-sm">
+            <p className="text-sm text-gray-300 text-center mt-4 md:text-left lg:text-sm">
               Build a modern and creative website with crealand
             </p>
             <ul className="flex justify-center items-center mt-5 space-x-4 text-gray-300 md:justify-start">
@@ -124,7 +124,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="hidden md:flex flex-col items-center space-y-4 md:col-span-12 lg:col-span-10">
-            <div className="bg-primary text-white p-3 rounded-full">
+            <div className="bg-primary text-gray-300 p-3 rounded-full">
               <AiFillHeart className="w-7 h-auto" />
             </div>
             <p className="font-bold italic text-dark-light">

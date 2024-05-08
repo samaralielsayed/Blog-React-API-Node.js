@@ -150,7 +150,7 @@ export default function Home() {
             onClick={() => {
               navigate("/addPost");
             }}
-            className="flex items-center space-x-2   bg-white font-semibold text-black border-base-100 border-2 hover:bg-base-100 hover:text-gray-100 px-4 py-2 mt-12 rounded transition duration-150"
+            className="flex items-center space-x-2   bg-white text-slate-700 font-semibold  border-slate-600 border-2 hover:bg-slate-700 hover:text-gray-100 px-4 py-2 mt-12 rounded transition duration-150"
             title="Add Post"
           >
             <svg
@@ -175,7 +175,7 @@ export default function Home() {
           {/* <div className= { numperOfItemsPostInPage >3 ? 'grid sm:grid-cols-1  xl:grid-cols-3 md:grid-cols-2 gap-8 my-8':` grid  grid-cols-1  gap-8  my-8`}> */}
           {posts.map((post) => (
             <div
-              className=" card  w-96 bg-base-100 shadow-xl relative "
+              className=" card  w-96  md:w-96 bg-slate-800 shadow-xl relative  text-gray-300 "
               key={post._id}
             >
               <figure className="hover:opacity-60 h-60">

@@ -91,17 +91,17 @@ export default function ProfileUser() {
         
           
 
-        <h1 className="font-bold text-black flex justify-center my-10 text-4xl italic">Update Profile</h1>
+        <h1 className="font-bold text-slate-600 flex justify-center my-10 text-4xl italic">Update Profile</h1>
       <div className="flex justify-center items-center flex-col relative  mb-16">
         <div className="bg-gray-200 p-10 my-10 rounded-xl shadow-md   ">
           <form
-            className="flex flex-col w-96 font-bold  "
+            className="flex flex-col md:w-96 sm:w-60 font-bold  "
             onSubmit={handleEditSubmit}
           >
             <label className="text-slate-800 opacity-90 mb-2">Name</label>
             <input
               type="text"
-              className="input input-bordered w-full  h-11 bg-neutral-100 "
+              className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600 "
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -113,7 +113,7 @@ export default function ProfileUser() {
             </label>
             <input
               type="text"
-              className="input input-bordered w-full  h-11 bg-neutral-100"
+              className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -133,7 +133,7 @@ export default function ProfileUser() {
             </label>
             <input
               type="file"
-              className="file-input file-input-bordered w-full h-11 bg-neutral-100 "
+              className="file-input file-input-bordered w-full h-11 bg-neutral-100 text-slate-600"
               //   onChange={(e) => {
               //     console.log(e.target.files[0]);
 
@@ -143,7 +143,7 @@ export default function ProfileUser() {
 
             {/* <input type="file"  className="input input-bordered w-full " /> */}
 
-            <button className="btn mt-6">Sumbit</button>
+            <button className="btn mt-6  text-gray-300 bg-slate-800 hover:bg-slate-700 ">Update Profile</button>
           </form>
         </div>
         <div className="d-flex mb-3 absolute -top-6">

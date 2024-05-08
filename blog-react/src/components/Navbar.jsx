@@ -17,8 +17,8 @@ export default function Navbar() {
   if (withouSidebarRoutes.some((item) => pathname === item)) return null;
   return (
     <>
-      <section className="bg-base-100">
-        <div className="navbar  container mx-auto   ">
+      <section className="bg-slate-800">
+        <div className="navbar  container mx-auto  text-gray-300 ">
           <div className="flex-1 ">
             <Link to={"/"} className="btn btn-ghost text-xl ">
               Blog Samar
@@ -31,16 +31,16 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex-none  gap-2">
-            <div className="form-control">
+            {/* <div className="form-control">
               <input
                 type="text"
                 placeholder="Search"
                 className="input input-bordered w-24 md:w-auto "
               />
-            </div>
+            </div> */}
 
             {auth ? (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end ">
                 <div
                   tabIndex={0}
                   role="button"
@@ -56,7 +56,7 @@ export default function Navbar() {
 
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content text-gray-300 bg-slate-800  rounded-box w-52"
                 >
                   <li>
                     <Link className="justify-between" to={"/profile"}>
@@ -73,14 +73,14 @@ export default function Navbar() {
                 </ul>
               </div>
             ) : (
-              <div className="flex justify-between w-32">
+              <div className="flex justify-between ">
                 <Link className="" to={"/login"}>
                   SignIn
                 </Link>
-                <span>OR</span>
+                {/* <span>OR</span>
                 <Link className="" to={"/register"}>
                   SignUp
-                </Link>
+                </Link> */}
                
               </div>
             )}

@@ -3,10 +3,15 @@ const imageKit = new ImageKit({
     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
     privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
     urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-  })
+    // authenticationEndpoint: `http://localhost:${process.env.PORT || 8000}/auth`    
+    
+    
+    
+})
+// authenticationEndpoint: "https://ik.imagekit.io/xlz4vm31w/user/auth"
   
 
-
+console.log(imageKit)
 
 const imagekitUploadSingleImageUser= async (req, res, next) => {
     try {
@@ -18,7 +23,7 @@ const imagekitUploadSingleImageUser= async (req, res, next) => {
 
             return next();
         }
-
+const result = imageKit.getAuthenticationParameters();
         imageKit.upload({
             file: req.file.buffer, // Use req.file.buffer instead of req.file directly
             fileName: req.body.image,
@@ -27,7 +32,7 @@ const imagekitUploadSingleImageUser= async (req, res, next) => {
             if (err) {
                 return res.status(500).json({
                     status: "failed",
-                    message: "An error occurred during file upload. Please try again."
+                    message: err.message
                 });
             }
 
@@ -58,7 +63,7 @@ const imagekitUploadSingleImageUser= async (req, res, next) => {
         console.log("Error uploading image to imagekit:", error.message);
         res.status(500).json({
             status: "failed",
-            message: "An error occurred during file upload. Please try again."
+            message: error.message
         });
     }
 };
@@ -77,7 +82,7 @@ const imagekitUploadSingleImagePost= async (req, res, next) => {
             if (err) {
                 return res.status(500).json({
                     status: "failed",
-                    message: "An error occurred during file upload. Please try again."
+                    message: err.message
                 });
             }
             req.fileId=response.fileId;
@@ -90,7 +95,7 @@ const imagekitUploadSingleImagePost= async (req, res, next) => {
         console.log("Error uploading image to imagekit:", error.message);
         res.status(500).json({
             status: "failed",
-            message: "An error occurred during file upload. Please try again."
+            message: error.message
         });
     }
 };
@@ -112,5 +117,6 @@ const deleteImage=  async (image) => {
 module.exports ={
     imagekitUploadSingleImageUser,
     imagekitUploadSingleImagePost,
-    deleteImage
+    deleteImage,
+    imageKit
 }

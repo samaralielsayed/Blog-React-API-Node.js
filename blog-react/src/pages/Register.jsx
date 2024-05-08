@@ -88,30 +88,30 @@ const Register = () => {
   return (
     <>
 
-<h1 className="font-bold text-black flex justify-center my-10 text-4xl italic  ">Register </h1>
+<h1 className="font-bold text-slate-600 flex justify-center my-10 text-4xl italic  ">Register </h1>
     <div className="flex justify-center items-center ">
       <div className="bg-gray-200 p-10 mb-10 rounded-xl shadow-md ">
       
-      <form className="flex flex-col w-96 font-bold  "  onSubmit={handleSubmit}>
-        <label  className="text-slate-800 opacity-90 mb-2" >Name</label>
-        <input id="title" type="text"  className="input input-bordered w-full  h-11 bg-neutral-100 " 
+      <form className="flex flex-col md:w-96 sm:w-60 font-bold "  onSubmit={handleSubmit}>
+        <label  className="text-slate-800 opacity-90 mb-2 text-salte-800" >Name</label>
+        <input id="title" type="text"  className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600" 
              name="name"
              onChange={handleChange} />
 
         <label className="mt-6 text-slate-800 opacity-90 mb-2">Email</label>
-        <input id="dscription" type="text"  className="input input-bordered w-full  h-11 bg-neutral-100"  
+        <input id="dscription" type="text"  className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600"  
             name="email"
             onChange={handleChange}/>
         
 
         <label className="mt-6 text-slate-800 opacity-90 mb-2">Password</label>
-        <input id="dscription" type="password"  className="input input-bordered w-full  h-11 bg-neutral-100"
+        <input id="dscription" type="password"  className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600" 
             name="password"
             onChange={handleChange}/>
         {/* <input type="file"  className="input input-bordered w-full " /> */}
 
-        <button className="btn mt-6">Register</button>
-        <p className="ps-3 pt-1 font-semibold">  Do you have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
+        <button className="btn mt-6  text-gray-300 bg-slate-800 hover:bg-slate-700 ">Register</button>
+        <p className="ps-3 pt-1 font-semibold text-gray-500">  Do you have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
       </form>
       </div>
     </div>

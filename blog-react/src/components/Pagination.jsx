@@ -17,8 +17,8 @@ console.log("curentpage", currentPage);
           <button
             onClick={() => {handleSelectPage(page + 1)
               setSearchParams({ page: page + 1 });}}
-            className={`join-item btn btn-sm px-4 ${
-              currentPage !== page + 1 && " btn-active  bg-slate-50"
+            className={`join-item btn btn-sm px-4 btn-active text-gray-300 bg-slate-800 hover:bg-slate-800   ${
+              currentPage !== page + 1 && "bg-white text-slate-700 hover:text-gray-300"
             }`}
             key={page + 1}
           >

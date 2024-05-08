@@ -86,18 +86,18 @@ export default function EditPost() {
         
           
 
-        <h1 className="font-bold text-black flex justify-center my-10 text-4xl italic">Update Post </h1>
+        <h1 className="font-bold flex justify-center my-10 text-4xl italic text-slate-600">Update Post </h1>
       <div className="flex justify-center items-center flex-col relative  mb-16">
         <div className="bg-gray-200 p-10 my-10 rounded-xl shadow-md   ">
         {/* <h1 className=" text-white  text-2xl absolute -top-14 font-bold left-0 border rounded-full  bg-black py-2 px-5 ">Update Post </h1> */}
           <form
-            className="flex flex-col w-96 font-bold  "
+            className="flex flex-col md:w-96 sm:w-60 font-bold  "
             onSubmit={handleEditSubmit}
           >
             <label className="text-slate-800 opacity-90 mb-2">Title Post</label>
             <input
               type="text"
-              className="input input-bordered w-full  h-11 bg-neutral-100 "
+              className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600 "
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -110,7 +110,7 @@ export default function EditPost() {
             </label>
             <input
               type="text"
-              className="input input-bordered w-full  h-11 bg-neutral-100"
+              className="input input-bordered w-full  h-11 bg-neutral-100 text-slate-600"
               value={description}
               onChange={(e) => {
                 setDescription(e.target.value);
@@ -123,7 +123,7 @@ export default function EditPost() {
             </label>
             <input
               type="file"
-              className="file-input file-input-bordered w-full h-11 bg-neutral-100 "
+              className="file-input file-input-bordered w-full h-11 bg-neutral-100 text-slate-600 "
               //   onChange={(e) => {
               //     console.log(e.target.files[0]);
 
@@ -134,7 +134,7 @@ export default function EditPost() {
 
             {/* <input type="file"  className="input input-bordered w-full " /> */}
 
-            <button className="btn mt-6">Sumbit</button>
+            <button className="btn mt-6  text-gray-300 bg-slate-800 hover:bg-slate-700">Update</button>
           </form>
         </div>
         <div className="d-flex mb-3 absolute -top-6">
