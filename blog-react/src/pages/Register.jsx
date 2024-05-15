@@ -44,7 +44,7 @@ const Register = () => {
     try {
       //http://localhost:8000/api
         const validationResult = await RegisterSchema.validate(inputs, { abortEarly: false });
-        const response = await axios.post("https://blog-api-node-js.onrender.com/api/users/register", inputs);
+        const response = await axios.post("http://localhost:8000/api/users/register", inputs);
         
         if (response.data.status === "success") {
             navigate("/login");
@@ -64,27 +64,6 @@ const Register = () => {
         }
     }
 };
-
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError(defaultErrors); 
-//     try {
-     
-//       const validationResult = await RegisterSchema.validate(inputs, { abortEarly: false });
-//       await axios.post("http://localhost:3000/api/users/register", inputs);
-//       navigate("/about");
-//       toast.success("Successfully registered!");
-//     } catch (err) {
-//       const newErrors = { ...defaultErrors };
-//       if (err.inner) {
-//         err.inner.forEach((error) => {
-//           newErrors[error.path] = error.message;
-//         });
-//       }
-//       setError(newErrors);
-//     }
-//   };
 
   return (
     <>

@@ -42,7 +42,7 @@ const Login = () => {
       });
       //http://localhost:8000/api
       const response = await axios.post(
-        "https://blog-api-node-js.onrender.com/api/users/login",
+        "http://localhost:8000/api/users/login",
         inputs
       );
 
@@ -50,13 +50,6 @@ const Login = () => {
         localStorage.setItem("token", response.data["token"]);
         localStorage.setItem("userId", response.data.user["_id"]);
         localStorage.setItem("image", response.data.user["image"]);
-        // let expirationDate = new Date(new Date().getTime() + (60000 * 60))
-        // let tokenExpir = {
-        //   value: response['token'],
-        //   expirationDate: expirationDate.toISOString()
-        // }
-
-        // sessionStorage.setItem('token', response.data['token']);
 
         navigate("/");
         toast.success("Successfully Login!");

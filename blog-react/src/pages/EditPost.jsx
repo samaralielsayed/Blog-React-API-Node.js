@@ -21,7 +21,7 @@ export default function EditPost() {
 
   useEffect(() => {
     async function getPostById() {
-      const { data } = await axios.get(`https://blog-api-node-js.onrender.com/api/posts/${id}`);
+      const { data } = await axios.get(`http://localhost:8000/api/posts/${id}`);
       console.log(data);
       setTitle(data.post.title);
       setDescription(data.post.description);
@@ -50,7 +50,7 @@ export default function EditPost() {
       });
       //http://localhost:8000/api
       const { data } = await axios.patch(
-        `https://blog-api-node-js.onrender.com/api/posts/${id}`,
+        `http://localhost:8000/api/posts/${id}`,
         validationResult,
         {
           headers: {
