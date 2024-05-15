@@ -40,8 +40,9 @@ const Login = () => {
       const validationResult = await RegisterSchema.validate(inputs, {
         abortEarly: false,
       });
+      //http://localhost:8000/api
       const response = await axios.post(
-        "http://localhost:8000/api/users/login",
+        "https://blog-api-node-js.onrender.com/api/users/login",
         inputs
       );
 

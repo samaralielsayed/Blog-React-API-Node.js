@@ -15,6 +15,8 @@ import ConfirmDelete from "../components/ConfirmDelete";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+
+  //http://localhost:8000
   const [showModal, setShowModal] = React.useState(false);
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,11 +53,11 @@ export default function Home() {
       let data ;
       if (id) {
         data = await axios.get(
-          `http://localhost:8000/api/users/${id}/posts?limit=6&page=${currentPage}`
+          `https://blog-api-node-js.onrender.com/api/users/${id}/posts?limit=6&page=${currentPage}`
         );
       } else {
         data = await axios.get(
-          `http://localhost:8000/api/posts?limit=6&page=${currentPage}`
+          `https://blog-api-node-js.onrender.com/api/posts?limit=6&page=${currentPage}`
         );
       }
       if (data.data.status === "success") {
@@ -78,7 +80,7 @@ export default function Home() {
   };
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:8000/api/posts/${id}`);
+      const res = await axios.delete(`https://blog-api-node-js.onrender.com/api/posts/${id}`);
       toast.success("Deleted Successfully", {
         position: "top-right",
       });
@@ -96,9 +98,9 @@ export default function Home() {
         toast.error("You are not logged in. Please login .");
         return;
       }
-
+//http://localhost:8000/api
       const { data } = await axios.get(
-        `http://localhost:8000/api/users/Profile`,
+        `https://blog-api-node-js.onrender.com/api/users/Profile`,
         {
           headers: {
             jwt: token,
@@ -175,14 +177,14 @@ export default function Home() {
           {/* <div className= { numperOfItemsPostInPage >3 ? 'grid sm:grid-cols-1  xl:grid-cols-3 md:grid-cols-2 gap-8 my-8':` grid  grid-cols-1  gap-8  my-8`}> */}
           {posts.map((post) => (
             <div
-              className=" card  w-96  md:w-96 bg-slate-800 shadow-xl relative  text-gray-300 "
+              className=" card w-60 sm:w-80 md:w-80   lg:w-96  xl:w-96  bg-slate-800 shadow-xl relative  text-gray-300 "
               key={post._id}
             >
               <figure className="hover:opacity-60 h-60">
-                <img src={post.image} alt="image" />
+                <img src={post.image} alt="image" className="w-full"/>
               </figure>
               <div className="card-body">
-                <h2 className="card-title text-slate-100">{post.title}</h2>
+                <h2 className="card-title text-slate-100 ">{post.title}</h2>
                 <p>{post.description}</p>
                 {/* <h1> {currentUser._id}  {post.user._id }</h1> */}
                 {currentUser._id === post.user._id && (

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ServerUrl = 'mongodb+srv://engsamar105:SEQdLv1li8N9lKll@cluster0.oisswi8.mongodb.net/blog_react'
+const ServerUrl = process.env.DB_URL;
 
 const dbConnection = mongoose
     .connect(ServerUrl)

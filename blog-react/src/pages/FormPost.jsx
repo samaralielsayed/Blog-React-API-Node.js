@@ -35,8 +35,9 @@ export default function FormPost() {
         abortEarly: false,
       });
       console.log("validationResult ", validationResult);
+      //http://localhost:8000/api
       const response = await axios.post(
-        "http://localhost:8000/api/posts",
+        "https://blog-api-node-js.onrender.com/api/posts",
         formData,
         {
           headers: {
@@ -82,7 +83,7 @@ export default function FormPost() {
       <div className="flex justify-center items-center ">
         <div className="bg-gray-200 p-10 mb-10 rounded-xl shadow-md ">
           <form
-            className="flex flex-col md:w-96 sm:w-60 font-bold  "
+            className="flex flex-col md:w-96 w-60 font-bold  "
             onSubmit={handleAddSubmit}
           >
             <label className="text-slate-800 opacity-90 mb-2">Title Post</label>

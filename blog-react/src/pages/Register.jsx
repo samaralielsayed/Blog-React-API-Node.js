@@ -42,8 +42,9 @@ const Register = () => {
     e.preventDefault();
     setError(defaultErrors); // Reset errors before validation
     try {
+      //http://localhost:8000/api
         const validationResult = await RegisterSchema.validate(inputs, { abortEarly: false });
-        const response = await axios.post("http://localhost:8000/api/users/register", inputs);
+        const response = await axios.post("https://blog-api-node-js.onrender.com/api/users/register", inputs);
         
         if (response.data.status === "success") {
             navigate("/login");

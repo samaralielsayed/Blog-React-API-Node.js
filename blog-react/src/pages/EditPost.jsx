@@ -21,7 +21,7 @@ export default function EditPost() {
 
   useEffect(() => {
     async function getPostById() {
-      const { data } = await axios.get(`http://localhost:8000/api/posts/${id}`);
+      const { data } = await axios.get(`https://blog-api-node-js.onrender.com/api/posts/${id}`);
       console.log(data);
       setTitle(data.post.title);
       setDescription(data.post.description);
@@ -48,8 +48,9 @@ export default function EditPost() {
       const validationResult = await RegisterSchema.validate(formValues, {
         abortEarly: false,
       });
+      //http://localhost:8000/api
       const { data } = await axios.patch(
-        `http://localhost:8000/api/posts/${id}`,
+        `https://blog-api-node-js.onrender.com/api/posts/${id}`,
         validationResult,
         {
           headers: {
@@ -57,6 +58,7 @@ export default function EditPost() {
           },
         }
       );
+      
         navigate("/");
       // Toast
       toast.success("Product update successfully!");
@@ -91,7 +93,7 @@ export default function EditPost() {
         <div className="bg-gray-200 p-10 my-10 rounded-xl shadow-md   ">
         {/* <h1 className=" text-white  text-2xl absolute -top-14 font-bold left-0 border rounded-full  bg-black py-2 px-5 ">Update Post </h1> */}
           <form
-            className="flex flex-col md:w-96 sm:w-60 font-bold  "
+            className="flex flex-col md:w-96 w-60 font-bold  "
             onSubmit={handleEditSubmit}
           >
             <label className="text-slate-800 opacity-90 mb-2">Title Post</label>

@@ -20,7 +20,7 @@ export default function ProfileUser() {
         return;
       }
       const { data } = await axios.get(
-        `http://localhost:8000/api/users/Profile`,
+        `https://blog-api-node-js.onrender.com/api/users/Profile`,
         {
           headers: {
             jwt: token,
@@ -62,8 +62,9 @@ export default function ProfileUser() {
       formData.append("email", email);
       formData.append("image", image);
       // formData.append("passwordHash", password);
+      //http://localhost:8000/api
       const { data } = await axios.patch(
-        `http://localhost:8000/api/users/update`,
+        `https://blog-api-node-js.onrender.com/api/users/update`,
         formData,
         {
           headers: {
@@ -95,7 +96,7 @@ export default function ProfileUser() {
       <div className="flex justify-center items-center flex-col relative  mb-16">
         <div className="bg-gray-200 p-10 my-10 rounded-xl shadow-md   ">
           <form
-            className="flex flex-col md:w-96 sm:w-60 font-bold  "
+            className="flex flex-col md:w-96 w-60 font-bold  "
             onSubmit={handleEditSubmit}
           >
             <label className="text-slate-800 opacity-90 mb-2">Name</label>
